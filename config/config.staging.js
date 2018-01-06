@@ -4,9 +4,9 @@ module.exports = {
 
     isProduction: false,
 
-    pageUrl: 'https://...',
+    pageUrl: 'https://kohlbeck.flyto.cloud',
 
-    apiUrl: 'https://.../beta',
+    apiUrl: 'https://kohlbeck.flyto.cloud',
 
     gaCode: null
 

@@ -7,11 +7,11 @@ module.exports = {
 
     isProduction: true,
 
-    pageUrl: 'https://page.pragonauts.cloud',
+    pageUrl: 'https:/kohlbeck.cz',
 
-    apiUrl: 'https://api.pragonauts.cloud',
+    apiUrl: 'https://kohlbeck.cz',
 
-    gaCode: null
+    gaCode: 'UA-83200251-1'
 
     /**
     // mongodb
