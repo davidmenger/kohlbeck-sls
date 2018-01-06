@@ -1,0 +1,15 @@
+{{#> layout }}
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2 text-center">
+			{{#if enquirySubmitted}}
+				<h1>Díky za email</h1>
+				<p class="perex">Ozveme se brzy!</p>
+				<a class="btn btn-default" href="/" role="button">Zpět domů</a>
+			{{else}}
+				{{> contactForm}}
+			{{/if}}
+		</div>
+	</div>
+</div>
+{{ layout }}

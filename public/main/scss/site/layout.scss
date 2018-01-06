@@ -1,0 +1,71 @@
+
+
+
+@font-face {
+  font-family: 'WorkSans-Regular';
+  src: url('/fonts/worksans/WorkSans-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/worksans/WorkSans-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/worksans/WorkSans-Regular.ttf') format('truetype') /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'WorkSans-SemiBold';
+  src: url('/fonts/worksans/WorkSans-SemiBold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/worksans/WorkSans-SemiBold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/worksans/WorkSans-SemiBold.ttf') format('truetype') /* Safari, Android, iOS */
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+	font-family: 'WorkSans-Regular', $font-family-sans-serif;
+	font-weight: 100;
+	font-stretch: condensed;
+	text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3,  {
+	font-family: 'WorkSans-SemiBold', $font-family-sans-serif;
+	margin-bottom: 20px;
+}
+
+h4, strong {
+	font-family: 'WorkSans-SemiBold', $font-family-sans-serif;
+}
+
+h2 {
+	font-size: 3em;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+$footerHeight: 300px;
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -$footerHeight;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+#footer, .page-wrap:after {
+  height: $footerHeight;
+}
+
+@media (max-width: $screen-sm-min) {
+	.page-wrap {
+		min-height: 100%;
+		/* equal to footer height */
+		margin-bottom: 0;
+	}
+
+	#footer, .page-wrap:after {
+		height: auto;
+	}
+}

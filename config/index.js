@@ -7,14 +7,14 @@ const config = {
 
     isProduction: false,
 
-    lang: 'en',
+    lang: 'cz',
 
     title: {
-        default: 'Okay API',
+        default: 'Kohlbeck Youngtimer - renovace a servis historických vozidel',
         suffix: ''
     },
 
-    description: 'Okay Api',
+    description: 'Zabýváme se renovací mladších historických vozidel. Provádíme karosářské práce, opravy motorů, servis podvozků a rádi vám poradíme.',
 
     region: process.env.REGION || 'eu-central-1',
 
@@ -52,7 +52,17 @@ const config = {
     statics: {
         index: {
             view: 'index',
-            title: 'Okay API'
+            title: 'Kohlbeck Youngtimer - renovace a servis historických vozidel'
+        },
+        miniBalmoralEdition: {
+            path: 'mini-balmoral-edition',
+            view: 'miniBalmoralEdition',
+            title: 'Renovace Rover Mini Balmoral Edition - Kohlbeck Youngtimer'
+        },
+        austinMini1986: {
+            path: 'renovace-austin-mini-1986',
+            view: 'austinMini1986',
+            title: 'Renovace Rover Mini Balmoral Edition - Kohlbeck Youngtimer'
         },
         error: {
             view: 'error',
