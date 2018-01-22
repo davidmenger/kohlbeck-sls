@@ -46,6 +46,7 @@ const renderTemplates = require('../lib/renderTemplates');
 const config = require('../config');
 const helpers = require('../lib/helpers');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const translations = require('../lib/translations');
 
 // enable CSS compression
 webpackConfig.module.rules[0].loader = ExtractTextPlugin.extract({
@@ -117,6 +118,7 @@ compiler.run((err) => {
         config.apiUrl = `${config.apiUrl || ''}`;
         config.pageUrl = `${config.pageUrl || ''}`;
         config.environment = targetStage;
+        config.translations = translations;
 
         renderTemplates.renderStaticFiles(config.statics, viewsPath, distPath, config, helpers)
             .then(() => {

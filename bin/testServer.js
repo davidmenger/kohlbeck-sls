@@ -14,6 +14,7 @@ const helpers = require('../lib/helpers');
 const webpackConfig = require('../webpack.config');
 const lambdaTester = require('../lib/lambdaTester');
 const bodyParser = require('body-parser');
+const translations = require('../lib/translations');
 
 const distPath = path.join(__dirname, '..', 'dist');
 const viewsPath = path.join(__dirname, '..', 'views');
@@ -37,11 +38,15 @@ Object.assign(config, {
     development: true
 });
 
+const staticData = Object.assign({}, config, {
+    translations
+});
+
 fs.watch(viewsPath, { recursive: true }, (e, filename) => {
     let prom;
     if (filename.match(/^partials/)) {
         prom = renderTemplates
-            .renderStaticFiles(config.statics, viewsPath, distPath, config, helpers)
+            .renderStaticFiles(config.statics, viewsPath, distPath, staticData, helpers)
             .then(() => console.log('Updated all templates')); // eslint-disable-line
     } else {
         const withoutExt = filename.replace(/\.hbs$/, '');
@@ -53,7 +58,7 @@ fs.watch(viewsPath, { recursive: true }, (e, filename) => {
             return;
         }
 
-        prom = renderTemplates.renderStatic(viewDef, viewsPath, distPath, config, helpers)
+        prom = renderTemplates.renderStatic(viewDef, viewsPath, distPath, staticData, helpers)
             .then(() => console.log(`Updated template: ${viewDef.view}`)); // eslint-disable-line
     }
 
@@ -66,7 +71,7 @@ const api = lambdaTester.yamlParser(cfgFile, config.prefix);
 
 app.use('/api', bodyParser.text({ type: 'application/json' }), api);
 
-renderTemplates.renderStaticFiles(config.statics, viewsPath, distPath, config, helpers)
+renderTemplates.renderStaticFiles(config.statics, viewsPath, distPath, staticData, helpers)
     .then(() => {
         app.listen(3000, () => {
             console.log('Example app listening on port 3000!'); // eslint-disable-line

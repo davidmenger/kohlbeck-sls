@@ -7,7 +7,7 @@ const config = {
 
     isProduction: false,
 
-    lang: 'cz',
+    lang: 'cs',
 
     title: {
         default: 'Kohlbeck Youngtimer - renovace a servis historických vozidel',
@@ -52,21 +52,30 @@ const config = {
     statics: {
         index: {
             view: 'index',
-            title: 'Kohlbeck Youngtimer - renovace a servis historických vozidel'
+            title: 'Kohlbeck Youngtimer - renovace a servis historických vozidel',
+            lang: 'cs'
+        },
+        indexEn: {
+            view: 'index',
+            path: 'en',
+            lang: 'en'
         },
         miniBalmoralEdition: {
             path: 'mini-balmoral-edition',
             view: 'miniBalmoralEdition',
-            title: 'Renovace Rover Mini Balmoral Edition - Kohlbeck Youngtimer'
+            title: 'Renovace Rover Mini Balmoral Edition - Kohlbeck Youngtimer',
+            lang: 'cs'
         },
         austinMini1986: {
             path: 'renovace-austin-mini-1986',
             view: 'austinMini1986',
-            title: 'Renovace Rover Mini Balmoral Edition - Kohlbeck Youngtimer'
+            title: 'Renovace Rover Mini Balmoral Edition - Kohlbeck Youngtimer',
+            lang: 'cs'
         },
         error: {
             view: 'error',
-            title: 'Page not found'
+            title: 'Page not found',
+            lang: 'cs'
         }
     },
 

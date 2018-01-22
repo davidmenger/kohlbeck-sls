@@ -116,7 +116,20 @@ provider:
         - "arn:aws:s3:::${self:custom.prefix}-deployment-bucket/*"
 
 package: ${file(./config/serverless.package.yml):package}
-functions: ${file(./routes/serverless.functions.yml):functions}
+
+functions:
+
+  #
+  # SHOWCASE ENDPOINT
+  #
+
+  hello:
+    handler: routes/handler.hello
+    events:
+      - http:
+          path: hello
+          method: GET
+          cors: ${self:custom.corsConfig}
 
 resources:
   Conditions:
